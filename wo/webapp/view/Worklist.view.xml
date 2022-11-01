@@ -3,7 +3,7 @@
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:semantic="sap.f.semantic">
-<!-- suman -->
+
     <semantic:SemanticPage
         id="page"
         headerPinnable="false"

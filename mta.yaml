@@ -20,24 +20,57 @@ modules:
     content:
       instance:
         destinations:
-        - Name: wororder_service_zworkorder_html_repo_host
+        - Name: wo_zworkorder_html_repo_host
           ServiceInstanceName: zworkorder-html5-app-host-service
           ServiceKeyName: zworkorder_html_repo_host-key
-          sap.cloud.service: wororder.service
+          sap.cloud.service: wo
         - Authentication: OAuth2UserTokenExchange
-          Name: wororder_service_uaa_zworkorder
+          Name: wo_uaa_zworkorder
           ServiceInstanceName: zworkorder-xsuaa-service
           ServiceKeyName: uaa_zworkorder-key
-          sap.cloud.service: wororder.service
+          sap.cloud.service: wo
         existing_destinations_policy: ignore
   build-parameters:
     no-source: true
+- name: zworkorder-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: zworkorder_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - comchappotawowo.zip
+      name: comchappotawowo
+      target-path: resources/
+- name: comchappotawowo
+  type: html5
+  path: wo
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
 resources:
 - name: zworkorder-destination-service
   type: org.cloudfoundry.managed-service
   parameters:
     config:
       HTML5Runtime_enabled: true
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
       version: 1.0.0
     service: destination
     service-name: zworkorder-destination-service
@@ -55,3 +88,5 @@ resources:
     service: xsuaa
     service-name: zworkorder-xsuaa-service
     service-plan: application
+parameters:
+  deploy_mode: html5-repo
