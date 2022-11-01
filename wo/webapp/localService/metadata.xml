@@ -1,0 +1,909 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://my304609-api.s4hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="CPD_SC_EXTERNAL_SERVICES_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="Project" sap:label="Project" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProjectID"/>
+                </Key>
+                <Property Name="ChangedBy" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Changed By" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="UseProjectBilling" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Use Project Billiing" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RestrictTimePosting" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Restrict time post" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProfitCenter" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Profit Center ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChangedOn" Type="Edm.DateTimeOffset" Precision="7" sap:unicode="false" sap:label="Changed On" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProfitCenterName" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Profit Center Desc." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProjectID" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Project ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProjectName" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Project Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProjectStage" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Project Stage" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="StageDesc" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Stage Desc." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="StartDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Start Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="EndDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="End Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Customer" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Customer ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CustomerName" Type="Edm.String" MaxLength="166" sap:unicode="false" sap:label="Customer Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProjManagerId" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Project Manager ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProjManagerName" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Project Manager Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProjAccountantId" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Project Accountant ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProjAccountantName" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Project Accountant Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProjControllerId" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Project Controller ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProjControllerName" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Project Controller Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProjPartnerId" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Project Partner ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProjPartnerName" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Project Partner Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CostCenter" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Cost Center ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CostCenterName" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Cost Center Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProjectCategory" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Project Type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Currency" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/>
+                <Property Name="Currencyname" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Currency Desc." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OrgID" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="Service Organization ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OrgDesc" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Service Organization Desc." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Confidential" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Confidential" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="YY1_AdvancePayWOExpens_Cpr" Type="Edm.Boolean" sap:display-format="UpperCase" sap:field-control="YY1_AdvancePayWOExpens_CprF" sap:label="Advance Pay WO - Expenses" sap:is-extension-field="true"/>
+                <Property Name="YY1_AdvancePayWOExpens_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_AdvancePayWOTime_Cpr" Type="Edm.Boolean" sap:display-format="UpperCase" sap:field-control="YY1_AdvancePayWOTime_CprF" sap:label="Advance Pay WO - Time" sap:is-extension-field="true"/>
+                <Property Name="YY1_AdvancePayWOTime_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_CommunityFee_Cpr" Type="Edm.Decimal" Precision="11" Scale="2" sap:field-control="YY1_CommunityFee_CprF" sap:label="Community Fee" sap:is-extension-field="true"/>
+                <Property Name="YY1_CommunityFee_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_ConsolidatedTEInvo_Cpr" Type="Edm.Boolean" sap:display-format="UpperCase" sap:field-control="YY1_ConsolidatedTEInvo_CprF" sap:label="Consolidated T &amp; E Invoice" sap:is-extension-field="true"/>
+                <Property Name="YY1_ConsolidatedTEInvo_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity1Fee_Cpr" Type="Edm.Decimal" Precision="11" Scale="2" sap:field-control="YY1_Entity1Fee_CprF" sap:label="Entity1 Fee" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity1Fee_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity1PartnerID_Cpr" Type="Edm.String" MaxLength="10" sap:field-control="YY1_Entity1PartnerID_CprF" sap:label="Entity1 Partner ID" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity1PartnerID_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity1PartnerRole_Cpr" Type="Edm.String" MaxLength="3" sap:field-control="YY1_Entity1PartnerRole_CprF" sap:text="YY1_Entity1PartnerRole_CprT" sap:label="Entity1 Partner Role" sap:value-list="standard" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity1PartnerRole_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity1PartnerRole_CprT" Type="Edm.String" MaxLength="60" sap:field-control="YY1_Entity1PartnerRole_CprF" sap:label="Entity1 Partner Role (Desc.)" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity2Fee_Cpr" Type="Edm.Decimal" Precision="11" Scale="2" sap:field-control="YY1_Entity2Fee_CprF" sap:label="Entity 2 Fee" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity2Fee_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity2PartnerID_Cpr" Type="Edm.String" MaxLength="10" sap:field-control="YY1_Entity2PartnerID_CprF" sap:label="Entity 2 Partner ID" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity2PartnerID_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity2PartnerRole_Cpr" Type="Edm.String" MaxLength="3" sap:field-control="YY1_Entity2PartnerRole_CprF" sap:text="YY1_Entity2PartnerRole_CprT" sap:label="Entity 2 Partner Role" sap:value-list="standard" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity2PartnerRole_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity2PartnerRole_CprT" Type="Edm.String" MaxLength="60" sap:field-control="YY1_Entity2PartnerRole_CprF" sap:label="Entity 2 Partner Role (Desc.)" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity3Fee_Cpr" Type="Edm.Decimal" Precision="11" Scale="2" sap:field-control="YY1_Entity3Fee_CprF" sap:label="Entity 3 Fee" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity3Fee_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity3PartnerID_Cpr" Type="Edm.String" MaxLength="10" sap:field-control="YY1_Entity3PartnerID_CprF" sap:label="Entity 3 Partner ID" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity3PartnerID_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity3PartnerRole_Cpr" Type="Edm.String" MaxLength="3" sap:field-control="YY1_Entity3PartnerRole_CprF" sap:text="YY1_Entity3PartnerRole_CprT" sap:label="Entity 3 Partner Role" sap:value-list="standard" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity3PartnerRole_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity3PartnerRole_CprT" Type="Edm.String" MaxLength="60" sap:field-control="YY1_Entity3PartnerRole_CprF" sap:label="Entity 3 Partner Role (Desc.)" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity4Fee_Cpr" Type="Edm.Decimal" Precision="11" Scale="2" sap:field-control="YY1_Entity4Fee_CprF" sap:label="Entity 4 Fee" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity4Fee_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity4PartnerID_Cpr" Type="Edm.String" MaxLength="10" sap:field-control="YY1_Entity4PartnerID_CprF" sap:label="Entity 4 Partner ID" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity4PartnerID_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity4PartnerRole_Cpr" Type="Edm.String" MaxLength="3" sap:field-control="YY1_Entity4PartnerRole_CprF" sap:text="YY1_Entity4PartnerRole_CprT" sap:label="Entity 4 Partner Role" sap:value-list="standard" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity4PartnerRole_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity4PartnerRole_CprT" Type="Edm.String" MaxLength="60" sap:field-control="YY1_Entity4PartnerRole_CprF" sap:label="Entity 4 Partner Role (Desc.)" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity5Fee_Cpr" Type="Edm.Decimal" Precision="11" Scale="2" sap:field-control="YY1_Entity5Fee_CprF" sap:label="Entity 5 Fee" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity5Fee_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity5PartnerID_Cpr" Type="Edm.String" MaxLength="10" sap:field-control="YY1_Entity5PartnerID_CprF" sap:label="Entity 5 Partner ID" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity5PartnerID_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity5PartnerRole_Cpr" Type="Edm.String" MaxLength="3" sap:field-control="YY1_Entity5PartnerRole_CprF" sap:text="YY1_Entity5PartnerRole_CprT" sap:label="Entity 5 Partner Role" sap:value-list="standard" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity5PartnerRole_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_Entity5PartnerRole_CprT" Type="Edm.String" MaxLength="60" sap:field-control="YY1_Entity5PartnerRole_CprF" sap:label="Entity 5 Partner Role (Desc.)" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_MBOProduct_Cpr" Type="Edm.String" MaxLength="3" sap:field-control="YY1_MBOProduct_CprF" sap:text="YY1_MBOProduct_CprT" sap:label="MBO Product" sap:value-list="standard" sap:is-extension-field="true"/>
+                <Property Name="YY1_MBOProduct_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_MBOProduct_CprT" Type="Edm.String" MaxLength="60" sap:field-control="YY1_MBOProduct_CprF" sap:label="MBO Product (Desc.)" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_ProjectType_Cpr" Type="Edm.String" MaxLength="3" sap:field-control="YY1_ProjectType_CprF" sap:text="YY1_ProjectType_CprT" sap:label="Work Order Type" sap:value-list="standard" sap:is-extension-field="true"/>
+                <Property Name="YY1_ProjectType_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_ProjectType_CprT" Type="Edm.String" MaxLength="60" sap:field-control="YY1_ProjectType_CprF" sap:label="Work Order Type (Desc.)" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_SupplierID_Cpr" Type="Edm.String" MaxLength="10" sap:field-control="YY1_SupplierID_CprF" sap:label="SupplierID" sap:is-extension-field="true"/>
+                <Property Name="YY1_SupplierID_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_TalentType_Cpr" Type="Edm.String" MaxLength="2" sap:field-control="YY1_TalentType_CprF" sap:text="YY1_TalentType_CprT" sap:label="Talent Type" sap:value-list="standard" sap:is-extension-field="true"/>
+                <Property Name="YY1_TalentType_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_TalentType_CprT" Type="Edm.String" MaxLength="60" sap:field-control="YY1_TalentType_CprF" sap:label="Talent Type (Desc.)" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_UsageUnit_Cpr" Type="Edm.String" MaxLength="3" sap:field-control="YY1_UsageUnit_CprF" sap:text="YY1_UsageUnit_CprT" sap:label="Usage Unit" sap:value-list="standard" sap:is-extension-field="true"/>
+                <Property Name="YY1_UsageUnit_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_UsageUnit_CprT" Type="Edm.String" MaxLength="60" sap:field-control="YY1_UsageUnit_CprF" sap:label="Usage Unit (Desc.)" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_VMS_Cpr" Type="Edm.Boolean" sap:display-format="UpperCase" sap:field-control="YY1_VMS_CprF" sap:label="VMS" sap:is-extension-field="true"/>
+                <Property Name="YY1_VMS_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_WODeliveryCity_Cpr" Type="Edm.String" MaxLength="30" sap:field-control="YY1_WODeliveryCity_CprF" sap:label="WO Delivery City" sap:is-extension-field="true"/>
+                <Property Name="YY1_WODeliveryCity_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_WODeliveryRegion_Cpr" Type="Edm.String" MaxLength="2" sap:field-control="YY1_WODeliveryRegion_CprF" sap:label="WO Delivery Region" sap:is-extension-field="true"/>
+                <Property Name="YY1_WODeliveryRegion_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_WOServiceType_Cpr" Type="Edm.String" MaxLength="10" sap:field-control="YY1_WOServiceType_CprF" sap:label="Work Order Service Type" sap:is-extension-field="true"/>
+                <Property Name="YY1_WOServiceType_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <Property Name="YY1_WOZIPCode_Cpr" Type="Edm.String" MaxLength="10" sap:field-control="YY1_WOZIPCode_CprF" sap:label="WO ZIP Code" sap:is-extension-field="true"/>
+                <Property Name="YY1_WOZIPCode_CprF" Type="Edm.Byte" sap:visible="false" sap:label="UI Field Control" sap:creatable="false" sap:updatable="false" sap:filterable="false" sap:is-extension-field="true"/>
+                <NavigationProperty Name="ProjectRoleSet" Relationship="CPD_SC_EXTERNAL_SERVICES_SRV.ToProjectRole" FromRole="FromRole_ToProjectRole" ToRole="ToRole_ToProjectRole"/>
+                <NavigationProperty Name="WorkpackageSet" Relationship="CPD_SC_EXTERNAL_SERVICES_SRV.ToWorkpackage" FromRole="FromRole_ToWorkpackage" ToRole="ToRole_ToWorkpackage"/>
+            </EntityType>
+            <EntityType Name="Workpackage" sap:label="Work Packages" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="WorkPackageID"/>
+                </Key>
+                <Property Name="WorkPackageUnitText" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Work Package Unit Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="WorkPackageType" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Work Package Type" sap:updatable="false"/>
+                <Property Name="UnitOfMeasure" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Unit Of Measure" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Quantity" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Quantity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ChangedOn" Type="Edm.DateTimeOffset" Precision="7" sap:unicode="false" sap:label="Changed on" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProjectID" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Project ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ChangedBy" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Changed By" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="WorkPackageID" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Work Package ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="WorkPackageName" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="Work Package Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="WPStartDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Work Package Start Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="WPEndDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Work Package EndDate" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProjectName" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Project Name" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="WorkPackageFunctionSet" Relationship="CPD_SC_EXTERNAL_SERVICES_SRV.ToWorkPackageFunction" FromRole="FromRole_ToWorkPackageFunction" ToRole="ToRole_ToWorkPackageFunction"/>
+                <NavigationProperty Name="WorkItemSet" Relationship="CPD_SC_EXTERNAL_SERVICES_SRV.ToWorkItem" FromRole="FromRole_ToWorkItem" ToRole="ToRole_ToWorkItem"/>
+                <NavigationProperty Name="PlanDataSet" Relationship="CPD_SC_EXTERNAL_SERVICES_SRV.ToPlanData" FromRole="FromRole_ToPlanData" ToRole="ToRole_ToPlanData"/>
+            </EntityType>
+            <EntityType Name="PlanData" sap:label="Plan Data" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProjectID"/>
+                    <PropertyRef Name="ResType"/>
+                    <PropertyRef Name="WorkPackageID"/>
+                    <PropertyRef Name="ResourceId"/>
+                    <PropertyRef Name="Version"/>
+                    <PropertyRef Name="Employee"/>
+                    <PropertyRef Name="Confirmed"/>
+                    <PropertyRef Name="WorkitemId"/>
+                    <PropertyRef Name="DelvryServOrg"/>
+                </Key>
+                <Property Name="BillingControlCategory" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Billing Category" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="BillingControlCategoryID" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Billing Category ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="EmployeeName" Type="Edm.String" sap:unicode="false" sap:label="Employee Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Wpname" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="Work Package Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProjectID" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Project ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ResType" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Resource Type ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="WorkPackageID" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Work Package ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ResTypeText" Type="Edm.String" sap:unicode="false" sap:label="Resource Type Desc." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ResourceId" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Resource ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ResourceText" Type="Edm.String" sap:unicode="false" sap:label="Resource Desc." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Uom" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Unit of Measure" sap:creatable="false" sap:updatable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="Version" Type="Edm.String" Nullable="false" MaxLength="28" sap:unicode="false" sap:label="Version ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Period" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="Month" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="FcYear" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Year" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Employee" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Employee ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Confirmed" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Resource is Confirmed" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="WorkitemId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Work Item ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="WorkitemName" Type="Edm.String" sap:unicode="false" sap:label="Work Item Desc." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Effort" Type="Edm.Decimal" Precision="15" Scale="3" sap:unicode="false" sap:unit="Uom" sap:label="Planned Effort" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DelvryServOrg" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Delivery Org. ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DelvryServOrgT" Type="Edm.String" sap:unicode="false" sap:label="Delivery Org. Desc." sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="ToStaffData" Relationship="CPD_SC_EXTERNAL_SERVICES_SRV.ToStaffData" FromRole="FromRole_ToStaffData" ToRole="ToRole_ToStaffData" sap:label="Navigate to Staff Data"/>
+            </EntityType>
+            <EntityType Name="WorkItem" sap:label="Work Items" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Workitem"/>
+                    <PropertyRef Name="WorkpackageID"/>
+                </Key>
+                <Property Name="Workitem" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Work Item ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="WorkpackageID" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Work Package ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Workitemname" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Work Item Desc." sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Workitemisinactive" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Work Item is Inactive" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="ProjectRole" sap:label="Project Roles" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProjectID"/>
+                    <PropertyRef Name="ProjectRoleID"/>
+                </Key>
+                <Property Name="ProjectID" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Project ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProjectRoleID" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Project Role ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="ProjectRoleName" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Project Role Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BusinessPartnerID" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Business Partner ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="BusinessPartnerName" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Business Partner Name" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="StaffingData" sap:label="Staffing Data" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProjectID"/>
+                    <PropertyRef Name="WorkPackageID"/>
+                    <PropertyRef Name="ResType"/>
+                    <PropertyRef Name="ResourceId"/>
+                    <PropertyRef Name="WorkitemId"/>
+                </Key>
+                <Property Name="ProjectID" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Project ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BillingControlCategory" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Billing Control Category Desc." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="WorkPackageID" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Work Package ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="WPname" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Work Package Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ResType" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="ResourceTypeID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ResTypeText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Resource Type Desc." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ResourceId" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Resource ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ResourceText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Resource Desc." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Uom" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Unit of Measure" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="Version" Type="Edm.String" Nullable="false" MaxLength="28" sap:unicode="false" sap:label="Plan Version ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Period" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FcYear" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Fiscal Year" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StaffedEmployee" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Staffed Employee ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Confirmed" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Resource is Confirmed" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="WorkitemId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Work Item ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="WorkitemName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Work Item Desc." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StaffedEffort" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="3" sap:unicode="false" sap:unit="Uom" sap:label="Staffed Efforts" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StaffedEmpDelvryServOrg" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Service Org." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StaffedEmpDelvryServOrgT" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Delivery Org. Desc." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StaffedEmployeeName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Staffed Employee Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="WorkPackageFunction" sap:label="Work Package Functions" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProjectID"/>
+                    <PropertyRef Name="WorkPackageID"/>
+                    <PropertyRef Name="WorkPackageFunctionId"/>
+                </Key>
+                <Property Name="ProjectID" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Project ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="WorkPackageID" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Work Package ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="WorkPackageFunctionId" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Work Package Function ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="WorkPackageFunctionName" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Work Package Function Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="WorkPackageFunctionIsBlocked" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Work Package Function Is Blocked" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="YY1_Entity1PartnerRole" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="3" sap:text="Description" sap:label="Entity1 Partner Role"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="60" sap:label="Entity1 Partner Role (Desc.)"/>
+            </EntityType>
+            <EntityType Name="YY1_Entity2PartnerRole" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="3" sap:text="Description" sap:label="Entity 2 Partner Role"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="60" sap:label="Entity 2 Partner Role (Desc.)"/>
+            </EntityType>
+            <EntityType Name="YY1_Entity3PartnerRole" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="3" sap:text="Description" sap:label="Entity 3 Partner Role"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="60" sap:label="Entity 3 Partner Role (Desc.)"/>
+            </EntityType>
+            <EntityType Name="YY1_Entity4PartnerRole" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="3" sap:text="Description" sap:label="Entity 4 Partner Role"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="60" sap:label="Entity 4 Partner Role (Desc.)"/>
+            </EntityType>
+            <EntityType Name="YY1_Entity5PartnerRole" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="3" sap:text="Description" sap:label="Entity 5 Partner Role"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="60" sap:label="Entity 5 Partner Role (Desc.)"/>
+            </EntityType>
+            <EntityType Name="YY1_MBOProduct" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="3" sap:text="Description" sap:label="MBO Product"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="60" sap:label="MBO Product (Desc.)"/>
+            </EntityType>
+            <EntityType Name="YY1_ProjectType" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="3" sap:text="Description" sap:label="Work Order Type"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="60" sap:label="Work Order Type (Desc.)"/>
+            </EntityType>
+            <EntityType Name="YY1_TalentType" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="2" sap:text="Description" sap:label="Talent Type"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="60" sap:label="Talent Type (Desc.)"/>
+            </EntityType>
+            <EntityType Name="YY1_UsageUnit" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Code"/>
+                </Key>
+                <Property Name="Code" Type="Edm.String" Nullable="false" MaxLength="3" sap:text="Description" sap:label="Usage Unit"/>
+                <Property Name="Description" Type="Edm.String" MaxLength="60" sap:label="Usage Unit (Desc.)"/>
+            </EntityType>
+            <Association Name="ToProjectRole" sap:content-version="1" sap:label="Navigate to Project Role">
+                <End Type="CPD_SC_EXTERNAL_SERVICES_SRV.Project" Multiplicity="1" Role="FromRole_ToProjectRole"/>
+                <End Type="CPD_SC_EXTERNAL_SERVICES_SRV.ProjectRole" Multiplicity="*" Role="ToRole_ToProjectRole"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ToProjectRole">
+                        <PropertyRef Name="ProjectID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ToProjectRole">
+                        <PropertyRef Name="ProjectID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ToWorkpackage" sap:content-version="1" sap:label="Navigate to Workpackage">
+                <End Type="CPD_SC_EXTERNAL_SERVICES_SRV.Project" Multiplicity="*" Role="FromRole_ToWorkpackage"/>
+                <End Type="CPD_SC_EXTERNAL_SERVICES_SRV.Workpackage" Multiplicity="*" Role="ToRole_ToWorkpackage"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ToWorkpackage">
+                        <PropertyRef Name="ProjectID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ToWorkpackage">
+                        <PropertyRef Name="ProjectID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ToStaffData" sap:content-version="1" sap:label="Navigate to Staff Data">
+                <End Type="CPD_SC_EXTERNAL_SERVICES_SRV.PlanData" Multiplicity="1" Role="FromRole_ToStaffData"/>
+                <End Type="CPD_SC_EXTERNAL_SERVICES_SRV.StaffingData" Multiplicity="*" Role="ToRole_ToStaffData"/>
+            </Association>
+            <Association Name="ToWorkItem" sap:content-version="1" sap:label="Navigate to WorkItem">
+                <End Type="CPD_SC_EXTERNAL_SERVICES_SRV.Workpackage" Multiplicity="*" Role="FromRole_ToWorkItem"/>
+                <End Type="CPD_SC_EXTERNAL_SERVICES_SRV.WorkItem" Multiplicity="*" Role="ToRole_ToWorkItem"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ToWorkItem">
+                        <PropertyRef Name="WorkPackageID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ToWorkItem">
+                        <PropertyRef Name="WorkpackageID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ToPlanData" sap:content-version="1" sap:label="Navigate to Plan Data">
+                <End Type="CPD_SC_EXTERNAL_SERVICES_SRV.Workpackage" Multiplicity="*" Role="FromRole_ToPlanData"/>
+                <End Type="CPD_SC_EXTERNAL_SERVICES_SRV.PlanData" Multiplicity="*" Role="ToRole_ToPlanData"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ToPlanData">
+                        <PropertyRef Name="WorkPackageID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ToPlanData">
+                        <PropertyRef Name="WorkPackageID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ToWorkPackageFunction" sap:content-version="1" sap:label="Navigate to WorkPackageFunctionSet">
+                <End Type="CPD_SC_EXTERNAL_SERVICES_SRV.Workpackage" Multiplicity="1" Role="FromRole_ToWorkPackageFunction"/>
+                <End Type="CPD_SC_EXTERNAL_SERVICES_SRV.WorkPackageFunction" Multiplicity="*" Role="ToRole_ToWorkPackageFunction"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ToWorkPackageFunction">
+                        <PropertyRef Name="WorkPackageID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ToWorkPackageFunction">
+                        <PropertyRef Name="WorkPackageID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="CPD_SC_EXTERNAL_SERVICES_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="YY1_Entity1PartnerRoleSet" EntityType="CPD_SC_EXTERNAL_SERVICES_SRV.YY1_Entity1PartnerRole" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" sap:countable="true" sap:searchable="true" sap:semantics="aggregate"/>
+                <EntitySet Name="YY1_Entity2PartnerRoleSet" EntityType="CPD_SC_EXTERNAL_SERVICES_SRV.YY1_Entity2PartnerRole" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" sap:countable="true" sap:searchable="true" sap:semantics="aggregate"/>
+                <EntitySet Name="YY1_Entity3PartnerRoleSet" EntityType="CPD_SC_EXTERNAL_SERVICES_SRV.YY1_Entity3PartnerRole" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" sap:countable="true" sap:searchable="true" sap:semantics="aggregate"/>
+                <EntitySet Name="YY1_Entity4PartnerRoleSet" EntityType="CPD_SC_EXTERNAL_SERVICES_SRV.YY1_Entity4PartnerRole" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" sap:countable="true" sap:searchable="true" sap:semantics="aggregate"/>
+                <EntitySet Name="YY1_Entity5PartnerRoleSet" EntityType="CPD_SC_EXTERNAL_SERVICES_SRV.YY1_Entity5PartnerRole" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" sap:countable="true" sap:searchable="true" sap:semantics="aggregate"/>
+                <EntitySet Name="YY1_MBOProductSet" EntityType="CPD_SC_EXTERNAL_SERVICES_SRV.YY1_MBOProduct" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" sap:countable="true" sap:searchable="true" sap:semantics="aggregate"/>
+                <EntitySet Name="YY1_ProjectTypeSet" EntityType="CPD_SC_EXTERNAL_SERVICES_SRV.YY1_ProjectType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" sap:countable="true" sap:searchable="true" sap:semantics="aggregate"/>
+                <EntitySet Name="YY1_TalentTypeSet" EntityType="CPD_SC_EXTERNAL_SERVICES_SRV.YY1_TalentType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" sap:countable="true" sap:searchable="true" sap:semantics="aggregate"/>
+                <EntitySet Name="YY1_UsageUnitSet" EntityType="CPD_SC_EXTERNAL_SERVICES_SRV.YY1_UsageUnit" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" sap:countable="true" sap:searchable="true" sap:semantics="aggregate"/>
+                <EntitySet Name="ProjectSet" EntityType="CPD_SC_EXTERNAL_SERVICES_SRV.Project" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="WorkpackageSet" EntityType="CPD_SC_EXTERNAL_SERVICES_SRV.Workpackage" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="PlanDataSet" EntityType="CPD_SC_EXTERNAL_SERVICES_SRV.PlanData" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="WorkItemSet" EntityType="CPD_SC_EXTERNAL_SERVICES_SRV.WorkItem" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="ProjectRoleSet" EntityType="CPD_SC_EXTERNAL_SERVICES_SRV.ProjectRole" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="StaffingDataSet" EntityType="CPD_SC_EXTERNAL_SERVICES_SRV.StaffingData" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="WorkPackageFunctionSet" EntityType="CPD_SC_EXTERNAL_SERVICES_SRV.WorkPackageFunction" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="ToWorkpackageSet" Association="CPD_SC_EXTERNAL_SERVICES_SRV.ToWorkpackage" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ProjectSet" Role="FromRole_ToWorkpackage"/>
+                    <End EntitySet="WorkpackageSet" Role="ToRole_ToWorkpackage"/>
+                </AssociationSet>
+                <AssociationSet Name="ToStaffDataSet" Association="CPD_SC_EXTERNAL_SERVICES_SRV.ToStaffData" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="PlanDataSet" Role="FromRole_ToStaffData"/>
+                    <End EntitySet="StaffingDataSet" Role="ToRole_ToStaffData"/>
+                </AssociationSet>
+                <AssociationSet Name="ToPlanDataSet" Association="CPD_SC_EXTERNAL_SERVICES_SRV.ToPlanData" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="WorkpackageSet" Role="FromRole_ToPlanData"/>
+                    <End EntitySet="PlanDataSet" Role="ToRole_ToPlanData"/>
+                </AssociationSet>
+                <AssociationSet Name="ToWorkItemSet" Association="CPD_SC_EXTERNAL_SERVICES_SRV.ToWorkItem" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="WorkpackageSet" Role="FromRole_ToWorkItem"/>
+                    <End EntitySet="WorkItemSet" Role="ToRole_ToWorkItem"/>
+                </AssociationSet>
+                <AssociationSet Name="ToWorkPackageFunctionSet" Association="CPD_SC_EXTERNAL_SERVICES_SRV.ToWorkPackageFunction" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="WorkpackageSet" Role="FromRole_ToWorkPackageFunction"/>
+                    <End EntitySet="WorkPackageFunctionSet" Role="ToRole_ToWorkPackageFunction"/>
+                </AssociationSet>
+                <AssociationSet Name="ToProjectRoleSet" Association="CPD_SC_EXTERNAL_SERVICES_SRV.ToProjectRole" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ProjectSet" Role="FromRole_ToProjectRole"/>
+                    <End EntitySet="ProjectRoleSet" Role="ToRole_ToProjectRole"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_AdvancePayWOExpens_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_AdvancePayWOTime_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_CommunityFee_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_ConsolidatedTEInvo_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_Entity1Fee_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_Entity1PartnerID_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_Entity1PartnerRole_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_Entity2Fee_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_Entity2PartnerID_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_Entity2PartnerRole_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_Entity3Fee_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_Entity3PartnerID_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_Entity3PartnerRole_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_Entity4Fee_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_Entity4PartnerID_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_Entity4PartnerRole_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_Entity5Fee_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_Entity5PartnerID_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_Entity5PartnerRole_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_MBOProduct_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_ProjectType_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_SupplierID_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_TalentType_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_UsageUnit_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_VMS_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_WODeliveryCity_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_WODeliveryRegion_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_WOServiceType_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_WOZIPCode_CprF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Hidden"/>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_Entity1PartnerRole_Cpr" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="CollectionPath" String="YY1_Entity1PartnerRoleSet"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="YY1_Entity1PartnerRole_Cpr"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                                    <PropertyValue Property="ValueListProperty" String="Description"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="YY1_Entity1PartnerRole_CprT"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="IsDisabled"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_Entity2PartnerRole_Cpr" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="CollectionPath" String="YY1_Entity2PartnerRoleSet"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="YY1_Entity2PartnerRole_Cpr"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                                    <PropertyValue Property="ValueListProperty" String="Description"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="YY1_Entity2PartnerRole_CprT"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="IsDisabled"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_Entity3PartnerRole_Cpr" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="CollectionPath" String="YY1_Entity3PartnerRoleSet"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="YY1_Entity3PartnerRole_Cpr"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                                    <PropertyValue Property="ValueListProperty" String="Description"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="YY1_Entity3PartnerRole_CprT"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="IsDisabled"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_Entity4PartnerRole_Cpr" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="CollectionPath" String="YY1_Entity4PartnerRoleSet"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="YY1_Entity4PartnerRole_Cpr"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                                    <PropertyValue Property="ValueListProperty" String="Description"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="YY1_Entity4PartnerRole_CprT"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="IsDisabled"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_Entity5PartnerRole_Cpr" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="CollectionPath" String="YY1_Entity5PartnerRoleSet"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="YY1_Entity5PartnerRole_Cpr"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                                    <PropertyValue Property="ValueListProperty" String="Description"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="YY1_Entity5PartnerRole_CprT"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="IsDisabled"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_MBOProduct_Cpr" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="CollectionPath" String="YY1_MBOProductSet"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="YY1_MBOProduct_Cpr"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                                    <PropertyValue Property="ValueListProperty" String="Description"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="YY1_MBOProduct_CprT"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="IsDisabled"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_ProjectType_Cpr" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="CollectionPath" String="YY1_ProjectTypeSet"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="YY1_ProjectType_Cpr"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                                    <PropertyValue Property="ValueListProperty" String="Description"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="YY1_ProjectType_CprT"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="IsDisabled"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_TalentType_Cpr" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="CollectionPath" String="YY1_TalentTypeSet"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="YY1_TalentType_Cpr"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                                    <PropertyValue Property="ValueListProperty" String="Description"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="YY1_TalentType_CprT"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="IsDisabled"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="/CPD/SC_EXTERNAL_SERVICES_SRV.Project/YY1_UsageUnit_Cpr" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="CollectionPath" String="YY1_UsageUnitSet"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="YY1_UsageUnit_Cpr"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                                    <PropertyValue Property="ValueListProperty" String="Description"/>
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="YY1_UsageUnit_CprT"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="IsDisabled"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="CPD_SC_EXTERNAL_SERVICES_SRV.CPD_SC_EXTERNAL_SERVICES_SRV_Entities/WorkpackageSet" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.ReadRestrictions">
+                    <Record>
+                        <PropertyValue Property="ReadByKeyRestrictions">
+                            <Record>
+                                <PropertyValue Property="Description" String="Returns information for one work package in a customer or internal project."/>
+                                <PropertyValue Property="LongDescription" String="Returns information for one work package in a project. You can retrieve details such as the work package name, work package type, start and end  dates, assigned work items, the resource plan work package functions and their status, and when it was last changed."/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description" String="Returns information about work packages in customer and internal projects."/>
+                        <PropertyValue Property="LongDescription" String="Returns information such as the work package name, work package type, start and end dates, assigned work items, the resource plan, work package functions and their status, and when it was last changed."/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="CPD_SC_EXTERNAL_SERVICES_SRV.CPD_SC_EXTERNAL_SERVICES_SRV_Entities/ProjectSet" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.ReadRestrictions">
+                    <Record>
+                        <PropertyValue Property="ReadByKeyRestrictions">
+                            <Record>
+                                <PropertyValue Property="Description" String="Returns details about a customer or internal project."/>
+                                <PropertyValue Property="LongDescription" String="Returns details about a customer or internal project. Using the project ID, you can retrieve information such as business partners assigned to project roles, the work packages and resources planned in a project, and staffing assignments."/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description" String="Returns details about customer and internal projects."/>
+                        <PropertyValue Property="LongDescription" String="Returns details about all customer and internal projects in the system. Besides retrieving basic information, it also retrieves information such as business partners assigned to project roles, the work packages and resources planned in a project,and staffing assignments."/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="CPD_SC_EXTERNAL_SERVICES_SRV.CPD_SC_EXTERNAL_SERVICES_SRV_Entities/PlanDataSet" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.ReadRestrictions">
+                    <Record>
+                        <PropertyValue Property="ReadByKeyRestrictions">
+                            <Record>
+                                <PropertyValue Property="Description" String="Returns detailed information about a resource or expense planned in a work package."/>
+                                <PropertyValue Property="LongDescription" String="Returns details about a resource or expense planned in a work package. Using the available keys, you can retrieve information about the quantity distribution between months. If there are several records with identical information in key fields, then the response is a set of aggregated records with planned efforts   quantities, or amounts grouped by a list of predefined criteria such as resource type, resource, calendar year, calendar month,    billing control category, work item, Employee ID, and so on. "/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description" String="Returns information about resources and expenses planned in work packages of customer and internal projects."/>
+                        <PropertyValue Property="LongDescription" String="Returns information about resources and expenses planned in work packages.' It also retrieves details such as the project ID, work package ID and name, the version of the plan, and the quantity or expense planned in different months of the workpackage.' If staffing exists, it also retrieves information about persons staffed to the plan, the delivery organization they come from, and if the staffing assignment is confirmed."/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="CPD_SC_EXTERNAL_SERVICES_SRV.CPD_SC_EXTERNAL_SERVICES_SRV_Entities/WorkItemSet" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.ReadRestrictions">
+                    <Record>
+                        <PropertyValue Property="ReadByKeyRestrictions">
+                            <Record>
+                                <PropertyValue Property="Description" String="Returns information about a work item in a work package."/>
+                                <PropertyValue Property="LongDescription" String="Returns information about a work item in a work package. It also retrieves information such as the name of the work item and whether the work item is active or inactive."/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description" String="Returns the work items assigned to a work package and the status of the work item."/>
+                        <PropertyValue Property="LongDescription" String="Returns the work items assigned to a work package. It also retrieves information such as the work package ID, work item ID, description, and whether the work item is active or inactive."/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="CPD_SC_EXTERNAL_SERVICES_SRV.CPD_SC_EXTERNAL_SERVICES_SRV_Entities/ProjectRoleSet" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.ReadRestrictions">
+                    <Record>
+                        <PropertyValue Property="ReadByKeyRestrictions">
+                            <Record>
+                                <PropertyValue Property="Description" String="Returns the business partner assigned to a project role."/>
+                                <PropertyValue Property="LongDescription" String="Returns the business partner assigned to a project role. It retrieves information such as the ID and name of the business partner."/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description" String="Returns the project roles and business partners assigned to them."/>
+                        <PropertyValue Property="LongDescription" String="Returns details about the roles assigned to a project and the business partner assigned to each role."/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="CPD_SC_EXTERNAL_SERVICES_SRV.CPD_SC_EXTERNAL_SERVICES_SRV_Entities/WorkPackageFunctionSet" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.ReadRestrictions">
+                    <Record>
+                        <PropertyValue Property="ReadByKeyRestrictions">
+                            <Record>
+                                <PropertyValue Property="Description" String="Returns information about a work package function in the work package of a customer or internal project."/>
+                                <PropertyValue Property="LongDescription" String="Returns information about a work package function in a work package. It retrieves information such as the work package function name and whether it is blocked or allowed."/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description" String="Returns the work package functions in work packages of customer and internal projects."/>
+                        <PropertyValue Property="LongDescription" String="Returns information about work package functions in a work package. It also retrieves information such as the work package ID, project ID, workpackage function, its description, and whether the work package function is blocked or allowed in the work package."/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="CPD_SC_EXTERNAL_SERVICES_SRV.CPD_SC_EXTERNAL_SERVICES_SRV_Entities/StaffingDataSet" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.ReadRestrictions">
+                    <Record>
+                        <PropertyValue Property="ReadByKeyRestrictions">
+                            <Record>
+                                <PropertyValue Property="Description" String="Returns details about staffing for planned activities in a work package."/>
+                                <PropertyValue Property="LongDescription" String="Returns details about staffing for planned activities in a work package. It retrieves details such as the delivery organization, the personnel number, the number of hours staffed in each month, the work items assigned to the individual,and whether the staffing is confirmed. If there are several records with identical information in key fields, then the response is a set of aggregated records with planned efforts   quantities, or amounts grouped by a list of predefined criteria such as resource type, resource, calendar year, calendar month,    billing control category, work item, Employee ID, and so on. "/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description" String="Returns information about staffing in work packages of a customer or internal project."/>
+                        <PropertyValue Property="LongDescription" String="Returns information about staffing in work packages. It retrieves information such as the work package ID, the personnel number, the delivery organization, the number of hours planned in each month, and whether the staffing is confirmed."/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="CPD_SC_EXTERNAL_SERVICES_SRV.CPD_SC_EXTERNAL_SERVICES_SRV_Entities/WorkpackageSet" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="PlanDataSet"/>
+                                    <PropertyValue Property="ReadRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Description" String="Returns details about a work package and a list of resource types and resources planned in a work package."/>
+                                            <PropertyValue Property="LongDescription" String="Returns details about a work package and a list of resource types and resources planned in a work package. The resource types could be people, additional resources, and expenses. It also retrieves information about staffing in the work package."/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="CPD_SC_EXTERNAL_SERVICES_SRV.CPD_SC_EXTERNAL_SERVICES_SRV_Entities/WorkpackageSet" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="WorkItemSet"/>
+                                    <PropertyValue Property="ReadRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Description" String="Returns the list of work items assigned to a work package."/>
+                                            <PropertyValue Property="LongDescription" String="Returns the list of work items assigned to a work package, and whether a work item is active or inactive in the context of the work package."/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="CPD_SC_EXTERNAL_SERVICES_SRV.CPD_SC_EXTERNAL_SERVICES_SRV_Entities/WorkpackageSet" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="WorkPackageFunctionSet"/>
+                                    <PropertyValue Property="ReadRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Description" String="Returns a list of work package functions and their status, for a given work package."/>
+                                            <PropertyValue Property="LongDescription" String="Returns, for a given work package, a list of work package functions and whether each work package function is blocked or allowed."/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="CPD_SC_EXTERNAL_SERVICES_SRV.CPD_SC_EXTERNAL_SERVICES_SRV_Entities/ProjectSet" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="WorkpackageSet"/>
+                                    <PropertyValue Property="ReadRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Description" String="Returns the work packages and its details, for a given customer or internal project."/>
+                                            <PropertyValue Property="LongDescription" String="Returns the work packages and corresponding details, for a given customer or internal project. Besides retrieving details about a work package, it also retrieves information from related entities such as work package functions, work items, planned resources, and staffed resources."/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="CPD_SC_EXTERNAL_SERVICES_SRV.CPD_SC_EXTERNAL_SERVICES_SRV_Entities/ProjectSet" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="ProjectRoleSet"/>
+                                    <PropertyValue Property="ReadRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Description" String="Returns, for a project, the project roles and the business partners assigned to those roles."/>
+                                            <PropertyValue Property="LongDescription" String="Retrieves all the project roles and the business partner assigned to each role, for a given customer or internal project."/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="CPD_SC_EXTERNAL_SERVICES_SRV.CPD_SC_EXTERNAL_SERVICES_SRV_Entities/PlanDataSet" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="ToStaffData"/>
+                                    <PropertyValue Property="ReadRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Description" String="Returns information about staffing for a specific resource type."/>
+                                            <PropertyValue Property="LongDescription" String="Returns information about staffing for resource type 0ACT only. It retrieves information such as the name of the person, the staffed effort and the corresponding month, the work item, whether the staffing is confirmed, and if the efforts are billable or not."/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://my304609-api.s4hana.ondemand.com/sap/opu/odata/cpd/SC_EXTERNAL_SERVICES_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://my304609-api.s4hana.ondemand.com/sap/opu/odata/cpd/SC_EXTERNAL_SERVICES_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
