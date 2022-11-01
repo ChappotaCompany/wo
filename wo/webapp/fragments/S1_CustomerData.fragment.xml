@@ -1,0 +1,22 @@
+<core:FragmentDefinition
+   xmlns="sap.m" xmlns:t="sap.ui.table"
+   xmlns:core="sap.ui.core" 	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+>
+                    <SelectDialog
+                        id="customertabledata"
+                        title="Customer"
+                        items="{s3>/}" showClearButton="true"
+                        search="_handleValueHelpSearchCustomer"
+                        confirm="selectcustomervalue"
+                        cancel="selectcustomervalue"
+                        multiSelect="true">
+                        <StandardListItem                            
+                            title="{s3>Customer}"
+                            description="{s3>CustomerName}" />
+                           
+                    </SelectDialog>
+
+
+  
+</core:FragmentDefinition>

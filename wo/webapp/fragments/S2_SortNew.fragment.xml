@@ -1,0 +1,14 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="handleSortDialogConfirm">
+		<sortItems>
+			<ViewSettingsItem text="Accounting Document" key="AccountingDocument" selected="true" />
+			<ViewSettingsItem text="Quantity" key="Quantity" />
+			<ViewSettingsItem text="Amount" key="AmountInGlobalCurrency" />
+			<ViewSettingsItem text="Reference" key="ReferenceDocument" />
+            <ViewSettingsItem text="Date" key="ServicesRenderedDate" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

@@ -2,29 +2,284 @@
     controllerName="com.chappota.wo.wo.controller.Object"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns:semantic="sap.f.semantic">
+    xmlns:semantic="sap.m.semantic"
+    xmlns:si="sap.suite.ui.commons.statusindicator"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:plugins="sap.m.plugins"
+>
+    <semantic:SemanticPage id="objectpage" showNavButton="true" navButtonPress="onNavBack">
+        <semantic:content>
+            <FlexBox width="100%" id="box0" direction="Column">
+                <items>
+                    <Toolbar width="100%" id="toolbar1">
+                        <ObjectStatus state="Error" text="{i18n>txt_projid}: {prjlst>/ProjectID}" width="100%" id="label0" design="Bold" />
+                        <ToolbarSpacer />
+                        <Label design="Bold" text="{i18n>txt_wiptime}" />
+                        <Switch type="AcceptReject" state="true" />
+                        <Label design="Bold" text="{i18n>txt_wipexp}" />
+                        <Switch type="AcceptReject" state="false" />
+                        <Label design="Bold" text="{i18n>txt_wipub}" />
+                        <Switch type="AcceptReject" state="false" />
+                    </Toolbar>
+                </items>
+            </FlexBox>
+            <!-- Test -->
+            <!-- <FlexBox width="100%" id="box1" wrap="Wrap" direction="Column" alignItems="Start">        
+                                                                                        <items>            -->
 
-    <semantic:SemanticPage
-        id="page"
-        headerPinnable="false"
-        toggleHeaderOnTitleClick="false"
-        busy="{objectView>/busy}"
-        busyIndicatorDelay="{objectView>/delay}">
+            <Toolbar width="100%" id="toolbar2" height="130px">
+                <f:SimpleForm
+                    width="600px"
+                    editable="true"
+                    layout="ResponsiveGridLayout"
+                    labelSpanXL="4"
+                    labelSpanL="3"
+                    labelSpanM="4"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="0"
+                    emptySpanL="4"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="2"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false"
+                    breakpointL="0"
+                    breakpointM="0"
+                    breakpointXL="0"
+                >
+                    <f:content>
+                        <Label text="{i18n>txt_projname}" />
+                        <ObjectStatus state="Information" text="{prjlst>/ProjectName}" width="200px" />
+                        <Label text="{i18n>txt_custname}" />
+                        <ObjectStatus state="Information" text="{prjlst>/CustomerName}" width="200px" />
+                        <Label text="{i18n>txt_projcntrlr}" />
+                        <ObjectStatus state="Information" text="{prjlst>/ProjControllerName}" width="200px" />
+                    </f:content>
+                </f:SimpleForm>
 
-        <semantic:titleHeading>
-            <Title
-                text="{CostCenter}"
-                level="H2"/>
-        </semantic:titleHeading>
+                <ToolbarSpacer />
+                <f:SimpleForm
+                    editable="true"
+                    layout="ResponsiveGridLayout"
+                    labelSpanXL="4"
+                    labelSpanL="3"
+                    labelSpanM="4"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="0"
+                    emptySpanL="4"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="2"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false"
+                    breakpointL="0"
+                    breakpointM="0"
+                    breakpointXL="0"
+                >
+                    <f:content>
+                        <Label text="{i18n>txt_projmngr}" />
+                        <ObjectStatus state="Information" text="{prjlst>/ProjManagerName}" />
+                        <Label text="{i18n>txt_projprntnr}" />
+                        <ObjectStatus state="Information" text="{prjlst>/ProjPartnerName}" />
+                    </f:content>
+                </f:SimpleForm>
+            </Toolbar>
 
-        <semantic:headerContent>
-            <ObjectNumber />
-        </semantic:headerContent>
+            <IconTabBar id="idIconTabBar" select=".onFilterSelect" class="sapUiResponsiveContentPadding">
+                <items>
+                    <IconTabFilter iconColor="Positive" count="{count1>/}" text="{i18n>txt_wiptime}" key="Ok" icon="sap-icon://time-account">
+                        <content>
+                            <Table id="wiptable" items="{path : 'wipentry>/'}" mode="MultiSelect" selectionChange="_wiptableselchange" growing="true" growingScrollToLoad="false" growingThreshold="100">
+                                <headerToolbar>
+                                    <Toolbar>
+                                        <content>
+                                            <!-- <Title text="Time Entries" level="H2"/> -->
+                                            <ObjectStatus state="Success" text="{i18n>txt_orgnl}:{orignal>/}" />
+                                            <ObjectStatus state="Error" text="{i18n>txt_chngd}:{changedcount>/}" />
+                                            <ObjectStatus state="Information" text="{i18n>txt_new}: {newcount>/}" />
+                                            <!-- <ToolbarSpacer/> -->
+                                            <Input id="suggestionhelpbox" placeholder="{i18n>txt_srchpcholder}" visible="true" width="290px" showSuggestion="true" showTableSuggestionValueHelp="false" suggestionRows="{wipentry>/}" suggestionItemSelected="onSuggestionItemSelected">
+                                                <suggestionColumns>
+                                                    <Column visible="false">
+                                                        <Text text="" />
+                                                    </Column>
+                                                    <Column visible="false">
+                                                        <Text text="{i18n>txt_chngind}" />
+                                                    </Column>
+                                                    <Column>
+                                                        <Label text="{i18n>txt_jeid}" />
+                                                    </Column>
+                                                    <Column>
+                                                        <Label text="{i18n>txt_ref}" />
+                                                    </Column>
+                                                    <Column>
+                                                        <Label text="{i18n>txt_wrkpckg}" />
+                                                    </Column>
+                                                    <Column>
+                                                        <Label text="{i18n>txt_amnt}" />
+                                                    </Column>
+                                                    <Column>
+                                                        <Label text="{i18n>txt_notes}" />
+                                                    </Column>
+                                                </suggestionColumns>
+                                                <suggestionRows>
+                                                    <ColumnListItem>
+                                                        <ObjectStatus state="{= ${wipentry>StatusObject} === undefined ? 'Success' : ${wipentry>StatusObject}}" icon="{= ${wipentry>StatusIcon} === undefined ? 'sap-icon://accept' : ${wipentry>StatusIcon}}" />
+                                                        <ObjectStatus state="{= ${wipentry>StatusObject} === undefined ? 'Success' : ${wipentry>StatusObject}}" text="{= ${wipentry>Status} === undefined ? 'Original' : ${wipentry>Status}}" />
 
-        <semantic:sendEmailAction>
-            <semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
-        </semantic:sendEmailAction>
+                                                        <ObjectStatus state="{= ${wipentry>StatusObject} === undefined ? 'Success' : ${wipentry>StatusObject}}" text="{wipentry>AccountingDocument}" />
 
+                                                        <ObjectStatus state="{= ${wipentry>StatusObject} === undefined ? 'Success' : ${wipentry>StatusObject}}" text="{wipentry>ReferenceDocument}" />
+
+                                                        <ObjectStatus state="{= ${wipentry>StatusObject} === undefined ? 'Success' : ${wipentry>StatusObject}}" text="{wipentry>WBSElement}" />
+                                                        <ObjectStatus state="{= ${wipentry>StatusObject} === undefined ? 'Success' : ${wipentry>StatusObject}}" text="{wipentry>AmountInGlobalCurrency}" />
+                                                        <ObjectStatus state="{= ${wipentry>StatusObject} === undefined ? 'Success' : ${wipentry>StatusObject}}" text="{wipentry>DocumentItemText}" />
+                                                    </ColumnListItem>
+                                                </suggestionRows>
+                                            </Input>
+                                            <Input width="auto" placeholder="{i18n>txt_accdoc}" submit="_searchaccdoc" id="_search" visible="false" />
+                                            <Button icon="sap-icon://refresh" press="_refreshWipTable" />
+                                            <ToolbarSpacer/>
+                                            <Button text="{i18n>txt_new}" width="auto" press="_createjeRecord" />
+                                            <MenuButton text="Edit">
+                                                <menu>
+                                                    <Menu>
+                                                        <MenuItem text="Edit" icon="sap-icon://edit" press="_updatejeRecord" />
+                                                        <MenuItem text="Text Edit" icon="sap-icon://write-new-document" />
+                                                    </Menu>
+                                                </menu>
+                                            </MenuButton>
+
+                                            <Button text="{i18n>txt_delete}" width="auto" press="_deletejeRecord" />
+                                            <Button text="{i18n>txt_transfer}" width="auto" visible="false" />
+                                            <Button text="{i18n>txt_combine}" width="auto" />
+
+                                            <Button text="{i18n>txt_postsubmit}" width="auto" press="_finalizeRecord" />
+
+                                            <Button text="{i18n>txt_readytobill}" width="auto" />
+
+                                            <Button tooltip="Sort" icon="sap-icon://sort" press="handleSortButtonPressed" />
+                                            <Button tooltip="Filter" icon="sap-icon://filter" press="handleFilterButtonPressed" />
+                                            <Button tooltip="Excel Export" icon="sap-icon://excel-attachment" />
+
+                                            <Button icon="sap-icon://action-settings" press="onPersoButtonPressed" />
+                                        </content>
+                                    </Toolbar>
+                                </headerToolbar>
+                                <infoToolbar>
+                                    <OverflowToolbar id="vsdFilterBar" visible="false">
+                                        <Text id="vsdFilterLabel" />
+                                    </OverflowToolbar>
+                                </infoToolbar>
+                                <dependents>
+                                    <plugins:ColumnResizer />
+                                </dependents>
+                                <columns>
+                                    <Column width="30px" id="emptyCol" visible="false">
+                                        <Text text="Ind" />
+                                    </Column>
+                                    <Column id="changeindCol">
+                                        <Text text="{i18n>txt_chngind}" />
+                                    </Column>
+
+                                    <Column width="100px" id="accountingCol">
+                                        <Text text="{i18n>txt_jeid}" />
+                                    </Column>
+                                    <Column width="100px" id="glaccountCol">
+                                        <Text text="{i18n>txt_glacc}" />
+                                    </Column>
+                                    <Column id="refCol">
+                                        <Text text="{i18n>txt_ref}" />
+                                    </Column>
+                                    <Column id="customerCol" visible="false">
+                                        <Text text="{i18n>txt_cust}" />
+                                    </Column>
+                                    <Column id="projCol">
+                                        <Text text="{i18n>txt_proj}" />
+                                    </Column>
+                                    <Column id="unbilqtyCol">
+                                        <Text text="{i18n>txt_unbqty}" />
+                                    </Column>
+                                    <Column id="wrkpckCol">
+                                        <Text text="{i18n>txt_wrkpckg}" />
+                                    </Column>
+                                    <Column id="amountCol">
+                                        <Text text="{i18n>txt_amnt}" />
+                                    </Column>
+                                    <Column id="acttypeCol">
+                                        <Text text="{i18n>txt_acttype}" />
+                                    </Column>
+
+                                    <Column width="100px" id="prnrCol">
+                                        <Text text="{i18n>txt_prnr}" />
+                                    </Column>
+                                    <Column id="servicedateCol">
+                                        <Text text="{i18n>txt_srvcrenddate}" />
+                                    </Column>
+                                    <Column id="notesCol">
+                                        <Text text="{i18n>txt_notes}" />
+                                    </Column>
+                                    <Column id="workitemCol" visible="false">
+                                        <Text text="{i18n>txt_wrkitem}" />
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem>
+                                        <cells>
+                                            <ObjectStatus state="{= ${wipentry>StatusObject} === undefined ? 'Success' : ${wipentry>StatusObject}}" icon="{= ${wipentry>StatusIcon} === undefined ? 'sap-icon://accept' : ${wipentry>StatusIcon}}" />
+                                            <ObjectStatus state="{= ${wipentry>StatusObject} === undefined ? 'Success' : ${wipentry>StatusObject}}" text="{= ${wipentry>Status} === undefined ? 'Original' : ${wipentry>Status}}" />
+                                            <ObjectStatus state="{= ${wipentry>StatusObject} === undefined ? 'Success' : ${wipentry>StatusObject}}" text="{wipentry>AccountingDocument}" />
+                                            <ObjectStatus state="{= ${wipentry>StatusObject} === undefined ? 'Success' : ${wipentry>StatusObject}}" text="{wipentry>GLAccount}" />
+                                            <ObjectStatus state="{= ${wipentry>StatusObject} === undefined ? 'Success' : ${wipentry>StatusObject}}" text="{wipentry>ReferenceDocument}" />
+                                            <ObjectStatus state="{= ${wipentry>StatusObject} === undefined ? 'Success' : ${wipentry>StatusObject}}" text="{wipentry>Customer}" />
+                                            <ObjectStatus state="{= ${wipentry>StatusObject} === undefined ? 'Success' : ${wipentry>StatusObject}}" text="{wipentry>Project}" />
+                                            <ObjectStatus state="{= ${wipentry>StatusObject} === undefined ? 'Success' : ${wipentry>StatusObject}}" text="{wipentry>Quantity}" />
+                                            <ObjectStatus state="{= ${wipentry>StatusObject} === undefined ? 'Success' : ${wipentry>StatusObject}}" text="{wipentry>WBSElement}" />
+                                            <ObjectStatus state="{= ${wipentry>StatusObject} === undefined ? 'Success' : ${wipentry>StatusObject}}" text="{wipentry>AmountInGlobalCurrency}" />
+                                            <ObjectStatus state="{= ${wipentry>StatusObject} === undefined ? 'Success' : ${wipentry>StatusObject}}" text="{wipentry>OriginCostCtrActivityType}" />
+                                            <ObjectStatus state="{= ${wipentry>StatusObject} === undefined ? 'Success' : ${wipentry>StatusObject}}" text="{wipentry>PersonnelNumber}" />
+                                            <ObjectStatus state="{= ${wipentry>StatusObject} === undefined ? 'Success' : ${wipentry>StatusObject}}" text="{path : 'wipentry>ServicesRenderedDate' , type:'sap.ui.model.type.Date', formatOptions: {UTC: true, TimeZone: 'UTC'}}" />
+                                            <Link text="{wipentry>DocumentItemText}" width="80px" press="_notespopover" wrapping="false" />
+                                            <ObjectStatus state="{= ${wipentry>StatusObject} === undefined ? 'Success' : ${wipentry>StatusObject}}" text="{wipentry>WorkItem}" />
+                                            <!-- <Button  icon="sap-icon://list" press="_notespopover" type="Transparent"/> -->
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                        </content>
+                    </IconTabFilter>
+                    <!--                                   <IconTabFilter icon="sap-icon://inventory" iconColor="Negative" count="{/ProductCollectionStats/Counts/Weight/Overweight}" text="Overweight" key="Overweight"/> -->
+                    <IconTabFilter icon="sap-icon://expense-report" iconColor="Critical" text="{i18n>txt_readytobill}" key="wipexpense" visible="true">
+                        <!-- <content>
+                            <Text text="{i18n>txt_readytobill}"/>
+                        </content> -->
+                        <Table>
+                            <headerToolbar>
+                                <Toolbar>
+                                    <content>
+                                        <ToolbarSpacer />
+                                        <Button text="Create BDR" press="_showBDRMessage" />
+                                        <Button text="Review Again" press="_showReviewMessage" />
+                                    </content>
+                                </Toolbar>
+                            </headerToolbar>
+                        </Table>
+                    </IconTabFilter>
+                    <!-- <IconTabFilter icon="sap-icon://tools-opportunity" iconColor="Negative" text="WIP Unit Based" key="wipunitbased" visible="true">
+                                            <content>
+                                                <Text text="WIP Unit Based" />
+                                            </content>
+                    
+                                        </IconTabFilter> -->
+                </items>
+            </IconTabBar>
+        </semantic:content>
     </semantic:SemanticPage>
-
 </mvc:View>
