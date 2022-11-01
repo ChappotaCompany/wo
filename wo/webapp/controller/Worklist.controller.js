@@ -286,16 +286,14 @@ sap.ui.define([
         // **************************************************** */
         //            Navitaion Via Router from WL to Object    //
         //***************************************************** */
-        onPress : function (oEvent) {
+        _navcreateform : function (oEvent) {
          
            this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
         
            this.oRouter.navTo("object",{
             from : "worklist",
             to : "object",
-            pid : oEvent.getSource().getBindingContext().getProperty("ProjectID"),
-            custid : oEvent.getSource().getBindingContext().getProperty("Customer"),
-            orgid : oEvent.getSource().getBindingContext().getProperty("OrgID")
+           
             
            },true);
         },

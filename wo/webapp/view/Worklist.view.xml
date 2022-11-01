@@ -109,6 +109,12 @@
                             </smartTable:layoutData>
                             <!-- <Table id="projecttable" growing="true" growingScrollToLoad="false" growingThreshold="100"> -->
                             <Table id="projecttable" growing="true" growingScrollToLoad="false" growingThreshold="100">
+                             <headerToolbar>
+                                    <Toolbar>
+                                       <ToolbarSpacer />
+                                       <Button text="Create" press="_navcreateform" />
+                                    </Toolbar>
+                                </headerToolbar>
                                 <columns>
                                     <Column>
                                         <customData>
@@ -118,7 +124,7 @@
                                     </Column>
                                 </columns>
                                 <items>
-                                    <ColumnListItem type="Navigation" press="onPress">
+                                    <ColumnListItem type="Navigation" >
                                         <cells>
                                             <Link text="{ProjectID}" />
                                         </cells>

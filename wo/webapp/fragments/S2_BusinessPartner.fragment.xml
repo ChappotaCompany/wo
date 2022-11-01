@@ -1,0 +1,45 @@
+
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   <Dialog
+      id="bpdialog"
+      title="Business Partner ">
+      	<Table id="table" items="{path: 's3>/'}">
+		<headerToolbar>
+			<OverflowToolbar>
+				<content>
+				</content>
+			</OverflowToolbar>
+		</headerToolbar>
+		<infoToolbar>
+			<OverflowToolbar>
+				<!-- <Label text="TEXT HERE"/> -->
+			</OverflowToolbar>
+		</infoToolbar>
+		<columns>
+			<Column >
+				<Text text="BusinessPartner" />
+			</Column>
+            <Column >
+				<Text text="Person Number" />
+			</Column>
+            <Column >
+				<Text text="BusinessPartner FullName" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem vAlign="Middle" type="Active" press="_bptablerowselect">
+				<cells>
+					<Text 						text="{s3>BusinessPartner}" />
+                    <Text 						text="{s3>PersonNumber}" />
+                    <Text 						text="{s3>BusinessPartnerFullName}" />
+				</cells>
+			</ColumnListItem>
+		</items>
+</Table>
+      <buttons>
+        <Button text="Close" press="_closeBPfrag"/>
+      </buttons>
+   </Dialog>
+</core:FragmentDefinition>
