@@ -1,0 +1,201 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" xmlns:form="sap.ui.layout.form">
+    <Dialog id="changedialog" draggable="true" resizable="true" title="Change Record" contentHeight="660px" contentWidth="800px">
+
+        <layout:BlockLayout background="Default" visible="true">
+            <layout:content>
+                <layout:BlockLayoutRow scrollable="false">
+                    <layout:content>
+                        <layout:BlockLayoutCell width="2" title="" titleAlignment="Begin" titleLevel="Auto">
+                            <layout:content>
+                                <form:Form width="100%" editable="true" visible="true">
+                                    <form:title>
+                                        <core:Title text="{i18n>txt_orgdata}" level="Auto"/>
+                                    </form:title>
+                                    <form:formContainers>
+                                        <form:FormContainer visible="true">
+                                            <form:formElements>
+                                                <form:FormElement visible="true">
+                                                    <form:label>
+                                                        <Label text="{i18n>txt_custname}" design="Standard" width="231.40625px" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    </form:label>
+                                                    <form:fields>
+                                                        <ObjectStatus state="Information" text="{prjlst>/CustomerName}"/>
+                                                    </form:fields>
+                                                </form:FormElement>
+                                                <form:FormElement visible="true">
+                                                    <form:label>
+                                                        <Label text="{i18n>txt_proj}" design="Standard" width="231.40625px" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    </form:label>
+                                                    <form:fields>
+                                                        <ObjectStatus state="Information" text="{prjlst>/ProjectID}"/>
+                                                    </form:fields>
+                                                </form:FormElement>
+                                                <form:FormElement visible="true">
+                                                    <form:label>
+                                                        <Label text="{i18n>txt_unbqty}" design="Standard" width="231.40625px" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    </form:label>
+                                                    <form:fields>
+                                                        <ObjectStatus state="Information" id="editleftunbilamnt"/>
+                                                    </form:fields>
+                                                </form:FormElement>
+                                                <form:FormElement visible="true">
+                                                    <form:label>
+                                                        <Label text="{i18n>txt_wrkpckg}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    </form:label>
+                                                    <form:fields>
+                                                        <ObjectStatus state="Information" id="editleftwpkg"/>
+                                                    </form:fields>
+                                                </form:FormElement>
+                                                <form:FormElement visible="true">
+                                                    <form:label>
+                                                        <Label text="{i18n>txt_acttype}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    </form:label>
+                                                    <form:fields>
+                                                        <ObjectStatus state="Information" id="editleftacttype"/>
+                                                    </form:fields>
+                                                </form:FormElement>
+                                                  <form:FormElement visible="true">
+                                                    <form:label>
+                                                        <Label text="{i18n>txt_prnr}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    </form:label>
+                                                    <form:fields>
+                                                        <ObjectStatus state="Information" id="editleftprnr"/>
+                                                    </form:fields>
+                                                </form:FormElement>
+                                                <form:FormElement visible="true">
+                                                    <form:label>
+                                                        <Label text="{i18n>txt_servicedata}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    </form:label>
+                                                    <form:fields>
+                                                        <ObjectStatus state="Information" id="editleftservdate"/>
+                                                    </form:fields>
+                                                </form:FormElement>
+                                                <form:FormElement visible="true">
+                                                    <form:label>
+                                                        <Label text="{i18n>txt_notes}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    </form:label>
+                                                    <form:fields>
+                                                        <ObjectStatus state="Information" id="editleftnotes"/>
+                                                    </form:fields>
+                                                </form:FormElement>
+                                            </form:formElements>
+                                            <form:title/>
+                                        </form:FormContainer>
+                                    </form:formContainers>
+                                    <form:layout>
+                                        <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+                                    </form:layout>
+                                </form:Form>
+                            </layout:content>
+                        </layout:BlockLayoutCell>
+                        <layout:BlockLayoutCell width="2" title="" titleAlignment="End" titleLevel="Auto">
+                            <layout:content>
+                                <form:Form width="100%" editable="true" visible="true">
+                                    <form:title>
+
+                                        <core:Title
+                                        text="{i18n>txt_chngdata}" level="Auto"/>
+                                    <!-- <core:Title text="(if no changes, leave the field blank)" /> -->
+
+                                    </form:title>
+                                    <form:formContainers>
+                                        <form:FormContainer visible="true">
+                                            <form:formElements>
+
+                                                <form:FormElement visible="true">
+                                                    <form:label>
+                                                        <Label text="{i18n>txt_custname}" design="Standard" width="231.40625px" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    </form:label>
+                                                    <form:fields>
+                                                        <Input enabled="false" value="{prjlst>/CustomerName}"/>
+                                                    </form:fields>
+                                                </form:FormElement>
+                                                <form:FormElement visible="true">
+                                                    <form:label>
+                                                        <Label text="{i18n>txt_proj}" design="Standard" width="231.40625px" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    </form:label>
+                                                    <form:fields>
+                                                        <Input enabled="true" value="{prjlst>/ProjectID}" id="editrightprojectid" showValueHelp="true"/>
+                                                    </form:fields>
+                                                </form:FormElement>
+                                                <form:FormElement visible="true">
+                                                    <form:label>
+                                                        <Label text="{i18n>txt_unbqty}" design="Standard" width="231.40625px" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    </form:label>
+                                                    <form:fields>
+                                                        <Input id="editrightunbilamnt"/>
+                                                    </form:fields>
+                                                </form:FormElement>
+                                                <form:FormElement visible="true">
+                                                    <form:label>
+                                                        <Label text="{i18n>txt_wrkpckg}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    </form:label>
+                                                    <form:fields>
+                                                        <Input id="editrightwpkg" showValueHelp="true"/>
+                                                    </form:fields>
+                                                </form:FormElement>
+                                                <form:FormElement visible="true">
+                                                    <form:label>
+                                                        <Label text="{i18n>txt_acttype}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    </form:label>
+                                                    <form:fields>
+                                                        <Input id="editrightacttype" showValueHelp="true"/>
+                                                    </form:fields>
+                                                </form:FormElement>
+                                                  <form:FormElement visible="true">
+                                                    <form:label>
+                                                        <Label text="{i18n>txt_prnr}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    </form:label>
+                                                    <form:fields>
+                                                        <Input enabled="true" id="editrightprnr" showValueHelp="true"/>
+                                                    </form:fields>
+                                                </form:FormElement>
+                                                <form:FormElement visible="true">
+                                                    <form:label>
+                                                        <Label text="{i18n>txt_servicedata}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    </form:label>
+                                                    <form:fields>
+                                                        <DatePicker enabled="true" id="editrightservdate" required="true"/>
+                                                    </form:fields>
+                                                </form:FormElement>
+                                                <form:FormElement visible="true">
+                                                    <form:label>
+                                                        <Label text="{i18n>txt_notes}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+                                                    </form:label>
+                                                    <form:fields>
+                                                        <TextArea rows="4" id="editrightnotes"/>
+                                                    </form:fields>
+                                                </form:FormElement>
+                                                <form:FormElement visible="true">
+                                                    <form:label>
+                                                        <Label visible="false" text="Note*" design="Standard" width="231.40625px" required="false" textAlign="Begin" textDirection="Inherit"/>
+                                                    </form:label>
+                                                    <form:fields>
+                                                        <ObjectStatus state="Error" bold="true" text="{i18n>txt_editmessage}"/>
+                                                    </form:fields>
+                                                </form:FormElement>
+                                            </form:formElements>
+                                            <form:title/>
+                                        </form:FormContainer>
+                                    </form:formContainers>
+                                    <form:layout>
+                                        <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+                                    </form:layout>
+                                </form:Form>
+
+                            </layout:content>
+                        </layout:BlockLayoutCell>
+                    </layout:content>
+                </layout:BlockLayoutRow>
+            </layout:content>
+        </layout:BlockLayout>
+
+        <buttons>
+            <Button text="{i18n>txt_save}" type="Accept" press="_saveeditjerecord"/>
+            <Button text="{i18n>txt_close}" type="Reject" press="_closechangerecord"/>
+            <Button text="{i18n>txt_resttoorgnl}" type="Reject" press="_resettooriginal"/>
+        </buttons>
+
+
+    </Dialog>
+</core:FragmentDefinition>

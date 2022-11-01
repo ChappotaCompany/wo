@@ -24,7 +24,53 @@
                     "localUri": "localService/metadata.xml",
                     "odataVersion": "2.0"
                 }
-            }
+            },
+            "mainService1": {
+                "uri": "/sap/opu/odata/cpd/SC_EXTERNAL_SERVICES_SRV/",
+                "type": "OData",
+                "settings": {
+                  "annotations": [],
+                  "localUri": "localService/metadata.xml",
+                  "odataVersion": "2.0"
+                }
+              },
+                   
+              "jrnlentry": {
+                "uri": "/sap/opu/odata/sap/YY1_JOURNALENTRYITEM_CDS/",
+                "type": "OData",
+                "settings": {
+                  "annotations": [],
+                  "localUri": "localService/metadata.xml",
+                  "odataVersion": "2.0"
+                }
+              },
+              "wipedits": {
+                "uri": "/sap/opu/odata/sap/YY1_WIPEDITS_CDS/",
+                "type": "OData",
+                "settings": {
+                  "annotations": [],
+                  "localUri": "localService/metadata.xml",
+                  "odataVersion": "2.0"
+                }
+              },
+              "wipsaves": {
+                "uri": "/sap/opu/odata/sap/API_MANAGE_WORKFORCE_TIMESHEET/",
+                "type": "OData",
+                "settings": {
+                  "annotations": [],
+                  "localUri": "localService/metadata.xml",
+                  "odataVersion": "2.0"
+                }
+              },
+              "customerdata": {
+                "uri": "/sap/opu/odata/sap/API_BUSINESS_PARTNER/",
+                "type": "OData",
+                "settings": {
+                  "annotations": [],
+                  "localUri": "localService/metadata.xml",
+                  "odataVersion": "2.0"
+                }
+              }    
         },
         "crossNavigation": {
             "inbounds": {
@@ -88,7 +134,35 @@
                 "dataSource": "mainService",
                 "preload": true,
                 "settings": {}
-            }
+            },
+            "s1": {
+                "dataSource": "mainService1",
+                "preload": true,
+                "settings": {}
+              },
+           
+              "jrnlentryMDL": {
+                "dataSource": "jrnlentry",
+                "preload": true,
+                "settings": {}
+              },
+              "wipeditsMDL": {
+                "dataSource": "wipedits",
+                "preload": true,
+                "settings": {}
+              },
+              "wipsavesMDL": {
+                "dataSource": "wipsaves",
+                "preload": true,
+                "settings": {}
+              },
+              "customerMDL": {
+                "dataSource": "customerdata",
+                "preload": true,
+                "settings": {
+                    
+                }
+              }
         },
         "resources": {
             "css": []
@@ -116,7 +190,7 @@
                     ]
                 },
                 {
-                    "pattern": "ProjectSet/{objectId}",
+                    "pattern": "{pid},{custid},{orgid}",
                     "name": "object",
                     "target": [
                         "object"

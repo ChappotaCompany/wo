@@ -1,0 +1,51 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" 	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+>
+   <Dialog
+      id="newdialog" draggable="true" resizable="true"
+      title="{i18n>txt_createnewrec}" contentHeight="430px" contentWidth="630px">
+<f:SimpleForm id="newform"
+			editable="true"
+			layout="ResponsiveGridLayout"		
+					
+			
+			columnsXL="2"
+			columnsL="2"
+			columnsM="2"
+			>
+			<f:content>
+                <Label text="{i18n>txt_cust}" />
+                <Input  width="auto" id="newcustomerid" value="{prjlst>/CustomerName}" editable = "false"/>  
+                <Label text="{i18n>txt_cust}" />
+                <Input  width="auto" id="newcustomerid2"  editable = "false"/>                
+				<Label text="{i18n>txt_projid}" />
+                <Input  width="auto" id="newprojectid" value="{prjlst>/ProjectID}" editable = "false"/>                
+				<Label text="{i18n>txt_jrnlentryid}" />
+                <Input  width="auto" id="newjournalid" value="" editable = "false"/>                
+				<Label text="{i18n>txt_unbqty}" />
+				<Input  width="auto" id="newunbilled"/>
+				<Label text="{i18n>txt_wrkpckg}" />
+				<Input width="auto" id="newworkpackage" value="{prjlst>/ProjectID}.1.1"/>               
+				<Label text="{i18n>txt_acttype}" />
+				<Input width="auto" id="newacttype" value="T001"/>
+                <Label text="{i18n>txt_prnr}" />
+				<Input width="auto" id="newprnr"/>
+                <Label text="{i18n>txt_servicedata}" />
+				<DatePicker width="auto" id="newservicedate"/>
+                 <Label text="{i18n>txt_notes}" />
+				<TextArea rows="4" width="auto" id="newnotes" />
+<!--                 
+                 <Button text="Save" type="Accept"/>
+                <Button text="Close" type="Reject" press="_closenewrecord"/> -->
+			
+			
+			</f:content>
+		</f:SimpleForm>
+      <buttons>
+        <Button text="{i18n>txt_save}" type="Accept" press="_savenewrecord"/>
+        <Button text="{i18n>txt_close}" type="Reject" press="_closenewrecord"/>
+      </buttons>
+   </Dialog>
+</core:FragmentDefinition>
