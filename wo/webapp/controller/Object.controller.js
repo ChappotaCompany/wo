@@ -25,7 +25,17 @@ sap.ui.define([
            
 
         },
+  
         onValueHelpRequest : function(oEvent){
+            this.inputid = oEvent.getSource().getId().split("-").pop();
+//             this.flag=0;
+//             if(this.byId("projmngrextid").getValue === inputid) this.flag=1;
+//             if(this.byId("projaccextid").getValue === inputid) this.flag=1;
+//             if(this.byId("projctrnlextid").getValue === inputid) this.flag=1;
+//             if(this.byId("projpartid").getValue === inputid) this.flag=1;
+
+// debugger;
+
             if (!this.bpfrag) {
                 this.bpfrag = this.loadFragment({
                     name: "com.chappota.wo.wo.fragments.S2_BusinessPartner"
@@ -41,7 +51,7 @@ sap.ui.define([
                 filters: [new Filter([bpc,pn],true)],
                 urlParameters: {
                     $select: 'BusinessPartner,PersonNumber,BusinessPartnerFullName',
-                    $top : 100
+                   $top : 100
                 },
                 success: (odata) => {
 
@@ -78,7 +88,7 @@ sap.ui.define([
 				return;
 			}
           
-			this.byId("projmngrextid").setValue(oSelectedItem);
+			this.byId(this.inputid).setValue(oSelectedItem);
             this._closeBPfrag();
         },
         

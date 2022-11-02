@@ -5,7 +5,7 @@
    <Dialog
       id="bpdialog"
       title="Business Partner ">
-      	<Table id="table" items="{path: 's3>/'}">
+      <Table id="table" items="{path: 's3>/'}"> 	<!-- growing="true" growingThreshold="100" growingScrollToLoad="true" -->
 		<headerToolbar>
 			<OverflowToolbar>
 				<content>
