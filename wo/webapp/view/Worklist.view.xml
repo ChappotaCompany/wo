@@ -40,7 +40,7 @@
                                             				path: 's2>/',
                                             				sorter: { path: 'ProjectID' }
                                             			}"
-                                            valueHelpRequest="_projectdata"
+                                            valueHelpRequest="_projectdata"  submit="_projsearch"
                                         >
                                             <core:Item key="{s2>ProjectID}" text="{s2>ProjectID}" />
                                         </MultiInput>

@@ -120,7 +120,16 @@ sap.ui.define([
                 });
             }
         },
+        _projsearch : function(oEvent){
+            var sValue = oEvent.getParameter("value");
+			var oFilter = new Filter(
+				"ProjectID",
+				FilterOperator.Contains,
+				sValue
+			);
+			this.byId("projecttable").getBinding("items").filter([oFilter]);
 
+        },
 
         // **************************************************** */
         //              CUSTOMER DATA                           //

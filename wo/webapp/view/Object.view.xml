@@ -68,7 +68,7 @@
                     <Label text="{i18n>txt_projdesc}" />
                     <Input id="projdesc" width="300px" />
                     <Label />
-                    <CheckBox text="{i18n>txt_conf}" id="conf" />
+                    <CheckBox id="conf" text="{i18n>txt_conf}"  />
                     <Label />
                     <CheckBox id="restimepsting" text="{i18n>txt_restimepsting}" />
                     <Label />
