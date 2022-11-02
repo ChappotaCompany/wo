@@ -70,7 +70,16 @@
                   "localUri": "localService/metadata.xml",
                   "odataVersion": "2.0"
                 }
-              }    
+              },
+              "wocreate": {
+                "uri": "/sap/opu/odata/cpd/SC_PROJ_ENGMT_CREATE_UPD_SRV/",
+                "type": "OData",
+                "settings": {
+                  "annotations": [],
+                  "localUri": "localService/metadata.xml",
+                  "odataVersion": "2.0"
+                }
+              }        
         },
         "crossNavigation": {
             "inbounds": {
@@ -158,6 +167,13 @@
               },
               "customerMDL": {
                 "dataSource": "customerdata",
+                "preload": true,
+                "settings": {
+                    
+                }
+              },
+              "woMDL": {
+                "dataSource": "wocreate",
                 "preload": true,
                 "settings": {
                     

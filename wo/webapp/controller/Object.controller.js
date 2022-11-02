@@ -84,8 +84,57 @@ sap.ui.define([
         
 
         _saveandsubmit : function(){
-            this.getRouter().navTo("worklist", {}, true);
-            MessageToast.show("Work Order Created");
+            var conf = this.byId("conf").getSelected();
+            var confval;
+                if(conf) confval="Y";else confval="N";
+            var rtp = this.byId("restimepsting").getSelected();
+            var rtpval;
+            if(rtp) rtpval="Y";else rtpval="N"
+            var wocreatepayload = {
+                "ProjectID": this.byId("projid").getValue(),
+                "ProjectName": this.byId("projname").getValue(),
+                "ProjectStage": this.byId("projstg").getSelectedKey(),
+                "OrgID": this.byId("orgid").getValue(),
+                "ProjectCategory":this.byId("projcat").getValue(),
+                "Currency": this.byId("curr").getValue(),
+                "StartDate": this.formatter.dateTimebackendwithtime(this.byId("sdate").getValue()),
+                "EndDate": this.formatter.dateTimebackendwithtime(this.byId("edate").getValue()),
+               
+                "ProjManagerExtId": this.byId("projmngrextid").getValue(),
+                "Customer": this.byId("cust").getValue(),
+               
+                "CostCenter": this.byId("ccenter").getValue(),
+                "ProfitCenter":this.byId("ptcenter").getValue(),
+                "ProjAccountantExtId": this.byId("projaccextid").getValue(),
+                "ProjControllerExtId": this.byId("projctrnlextid").getValue(),
+                "ProjPartnerExtId": this.byId("projpartid").getValue(),
+                "ProjectDesc": this.byId("projdesc").getValue(),
+                "Confidential": confval,
+                "RestrictTimePosting": rtpval 
+               };
+               
+               debugger;
+            sap.ui.core.BusyIndicator.show(0);
+            var wocreate = this.getOwnerComponent().getModel("woMDL");
+            wocreate.create("/ProjectSet",wocreatepayload,{
+                success : function(odata){
+                    sap.ui.core.BusyIndicator.hide();
+                    debugger;
+                      //this.getRouter().navTo("worklist", {}, true);
+                    MessageToast.show("Work Order Created");
+            
+                }.bind(this),
+                error : function(msg){
+                    debugger;
+                    sap.ui.core.BusyIndicator.hide();
+                }
+            });
+
+
+            
+
+
+
         },
         _cancel : function(){
             var sPreviousHash = History.getInstance().getPreviousHash();
