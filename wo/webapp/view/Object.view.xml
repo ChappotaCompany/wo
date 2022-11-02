@@ -12,7 +12,248 @@
 >
     <semantic:SemanticPage id="objectpage" showNavButton="true" navButtonPress="onNavBack" title="{i18n>title_cwo}">
         <semantic:content>
-            <f:SimpleForm id="formcreate" editable="true" layout="ResponsiveGridLayout" columnsXL="2" columnsL="2" columnsM="2" 	title="Create Work Order">
+            <form:Form width="100%" editable="true" visible="true">
+                <form:title>
+                    <core:Title text="Work Order Creation" />
+                </form:title>
+                <form:toolbar>
+                    <Toolbar>
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://save" press="_saveandsubmit" type="Accept" />
+
+                        <Button icon="sap-icon://decline" press="_cancel" type="Reject" />
+                    </Toolbar>
+                </form:toolbar>
+                <form:formContainers>
+                    <form:FormContainer visible="true">
+                        <form:formElements>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="{i18n>txt_prjid}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                </form:label>
+                                <form:fields>
+                                    <Input id="projid" width="300px" />
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="{i18n>txt_prjname}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                </form:label>
+                                <form:fields>
+                                    <Input id="projname" width="300px" />
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="{i18n>txt_prjstg}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                </form:label>
+                                <form:fields>
+                                    <ComboBox id="projstg" width="300px">
+                                        <core:Item key="" text="" />
+                                        <core:Item key="P001" text="In Planning" />
+                                        <core:Item key="P002" text="Contract Preparation" />
+                                        <core:Item key="P003" text="In Execution" />
+                                    </ComboBox>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="{i18n>txt_orgid}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                </form:label>
+                                <form:fields>
+                                    <Input id="orgid" width="300px" value="1710" />
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="{i18n>txt_prjcat}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                </form:label>
+                                <form:fields>
+                                    <Input id="projcat" width="300px" value="C" />
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="{i18n>txt_curr}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                </form:label>
+                                <form:fields>
+                                    <Input id="curr" width="300px" value="USD" />
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="{i18n>txt_sdate}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                </form:label>
+                                <form:fields>
+                                    <DatePicker id="sdate" width="300px" />
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="{i18n>txt_endate}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                </form:label>
+                                <form:fields>
+                                    <DatePicker id="edate" width="300px" />
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="{i18n>txt_projmngrextid}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                </form:label>
+                                <form:fields>
+                                    <Input id="projmngrextid" width="300px" showValueHelp="true" valueHelpRequest=".onValueHelpRequest" suggestionItems="{s3>/}">
+                                        <suggestionItems>
+                                            <core:Item text="{s3>BusinessPartner} - {s3>BusinessPartnerFullName}" />
+                                        </suggestionItems>
+                                    </Input>
+                                </form:fields>
+                            </form:FormElement>
+                        </form:formElements>
+                        <form:title />
+                    </form:FormContainer>
+                    <form:FormContainer visible="true">
+                        <form:formElements>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="{i18n>txt_cust}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                </form:label>
+                                <form:fields>
+                                    <Input id="cust" width="300px" />
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="{i18n>txt_ccenter}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                </form:label>
+                                <form:fields>
+                                    <Input id="ccenter" width="300px" value="1710PR0002" />
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="{i18n>txt_ptcenter}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                </form:label>
+                                <form:fields>
+                                    <Input id="ptcenter" width="300px" value="PC000002" />
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="{i18n>txt_projaccextid}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                </form:label>
+                                <form:fields>
+                                    <Input id="projaccextid" width="300px" showValueHelp="true" valueHelpRequest=".onValueHelpRequest" suggestionItems="{s3>/}">
+                                        <suggestionItems>
+                                            <core:Item text="{s3>BusinessPartner} - {s3>BusinessPartnerFullName}" />
+                                        </suggestionItems>
+                                    </Input>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="{i18n>txt_projctrnlextid}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                </form:label>
+                                <form:fields>
+                                    <Input id="projctrnlextid" width="300px" showValueHelp="true" valueHelpRequest=".onValueHelpRequest" suggestionItems="{s3>/}">
+                                        <suggestionItems>
+                                            <core:Item text="{s3>BusinessPartner} - {s3>BusinessPartnerFullName}" />
+                                        </suggestionItems>
+                                    </Input>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="{i18n>txt_projpartid}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                </form:label>
+                                <form:fields>
+                                    <Input id="projpartid" width="300px" showValueHelp="true" valueHelpRequest=".onValueHelpRequest" suggestionItems="{s3>/}">
+                                        <suggestionItems>
+                                            <core:Item text="{s3>BusinessPartner} - {s3>BusinessPartnerFullName}" />
+                                        </suggestionItems>
+                                    </Input>
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="{i18n>txt_projdesc}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                </form:label>
+                                <form:fields>
+                                    <Input id="projdesc" width="300px" />
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                </form:label>
+                                <form:fields>
+                                    <CheckBox id="conf" text="{i18n>txt_conf}" />
+                                </form:fields>
+                            </form:FormElement>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                </form:label>
+                                <form:fields>
+                                    <CheckBox id="restimepsting" text="{i18n>txt_restimepsting}" />
+                                </form:fields>
+                            </form:FormElement>
+                            <!-- <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                </form:label>
+                                <form:fields>
+                                    
+                                        <Button text="Submit" type="Accept" press="_saveandsubmit" width="100px" />
+
+                                        <Button text="Cancel" type="Reject" press="_cancel" width="100px" />
+                                   
+                                </form:fields>
+                            </form:FormElement> -->
+                        </form:formElements>
+                        <form:title />
+                    </form:FormContainer>
+                </form:formContainers>
+                <form:layout>
+                    <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12" />
+                </form:layout>
+            </form:Form>
+            <form:Form width="100%" editable="true" visible="true">
+                <form:title>
+                    <core:Title text="Rates" />
+                </form:title>
+                <form:formContainers>
+                    <form:FormContainer visible="true">
+                        <form:formElements>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Bill Rate" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                </form:label>
+                                <form:fields>
+                                    <Input width="300px" />
+                                </form:fields>
+                            </form:FormElement>
+                        </form:formElements>
+                        <form:title />
+                    </form:FormContainer>
+                    <form:FormContainer visible="true">
+                        <form:formElements>
+                            <form:FormElement visible="true">
+                                <form:label>
+                                    <Label text="Pay Rate" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true" />
+                                </form:label>
+                                <form:fields>
+                                    <Input width="300px" />
+                                </form:fields>
+                            </form:FormElement>
+                        </form:formElements>
+                        <form:title />
+                    </form:FormContainer>
+                </form:formContainers>
+                <form:layout>
+                    <form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12" />
+                </form:layout>
+            </form:Form>
+            <!-- <f:SimpleForm id="formcreate" editable="true" layout="ResponsiveGridLayout" columnsXL="2" columnsL="2" columnsM="2" 	title="Create Work Order">
                 <f:content>
                     <Label text="{i18n>txt_prjid}" />
                     <Input id="projid" width="300px" />
@@ -84,7 +325,7 @@
                 <Label text="Pay Rate" /><Input width="300px" />
                
             </f:content>
-            </f:SimpleForm>         
+            </f:SimpleForm>          -->
         </semantic:content>
     </semantic:SemanticPage>
 </mvc:View>
